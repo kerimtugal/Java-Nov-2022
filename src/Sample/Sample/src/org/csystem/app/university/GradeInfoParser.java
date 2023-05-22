@@ -3,7 +3,7 @@ package org.csystem.app.university;
 import org.csystem.app.datetime.DateUtil;
 
 public class GradeInfoParser {
-    public GradeInfo gradeInfo;
+    private final GradeInfo m_gradeInfo;
 
     public static String getDateStr(String str)
     {
@@ -23,13 +23,18 @@ public class GradeInfoParser {
 
         //...
 
-        gradeInfo = new GradeInfo();
+        m_gradeInfo = new GradeInfo();
 
-        gradeInfo.studentName = gradeInfoStr[0];
-        gradeInfo.lectureName = gradeInfoStr[1];
-        gradeInfo.midtermDate = getDateStr(gradeInfoStr[2]);
-        gradeInfo.finalDate = getDateStr(gradeInfoStr[3]);
-        gradeInfo.midtermGrade = Integer.parseInt(gradeInfoStr[4]);
-        gradeInfo.finalGrade = Integer.parseInt(gradeInfoStr[5]);
+        m_gradeInfo.setStudentName(gradeInfoStr[0]);
+        m_gradeInfo.setLectureName(gradeInfoStr[1]);
+        m_gradeInfo.setMidtermDate(getDateStr(gradeInfoStr[2]));
+        m_gradeInfo.setFinalDate(getDateStr(gradeInfoStr[3]));
+        m_gradeInfo.setMidtermGrade(Integer.parseInt(gradeInfoStr[4]));
+        m_gradeInfo.setFinalGrade(Integer.parseInt(gradeInfoStr[5]));
+    }
+
+    public GradeInfo getGradeInfo()
+    {
+        return m_gradeInfo;
     }
 }

@@ -1,7 +1,7 @@
 /*----------------------------------------------------------
 	FILE			: StringUtil.java
 	AUTHOR			: Java-Nov-2022 Group
-	LAST UPDATE		: 06.05.2023
+	LAST UPDATE		: 21.05.2023
 	
 	Utility class for string operations
 	
@@ -15,6 +15,17 @@ import org.csystem.util.array.ArrayUtil;
 import java.util.Random;
 
 public class StringUtil {
+	private static final String LETTERS_TR = "abcçdefgğhıijklmnoöprsştuüvyz";
+	private static final String LETTERS_EN = "abcdefghijklmnopqrstuwxvyz";
+	private static final String LETTERS_CAPITAL_TR = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
+	private static final String LETTERS_CAPITAL_EN = "ABCDEFGHIJKLMNOPQRSTUWXYZ";
+	private static final String LETTERS_ALL_TR = LETTERS_TR + LETTERS_CAPITAL_TR;
+	private static final String LETTERS_ALL_EN = LETTERS_EN + LETTERS_CAPITAL_EN;
+
+	private StringUtil()
+	{
+	}
+
 	public static String capitalize(String s)
 	{
 		return s.isEmpty() ? "" : Character.toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();
@@ -63,7 +74,7 @@ public class StringUtil {
 
 	public static String getRandomTextEN(Random r, int n)
 	{
-		return getRandomText(r, n, "abcdefghijklmnopqrstuwxvyzABCDEFGHIJKLMNOPQRSTUWXYZ");
+		return getRandomText(r, n, LETTERS_ALL_EN);
 	}
 
 	public static String getRandomTextTR(int n)
@@ -73,7 +84,7 @@ public class StringUtil {
 
 	public static String getRandomTextTR(Random r, int n)
 	{
-		return getRandomText(r, n, "abcçdefgğhıijklmnoöprsştuüvyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ");
+		return getRandomText(r, n, LETTERS_ALL_TR);
 	}
 
 	public static boolean isPalindrome(String s)
@@ -119,12 +130,12 @@ public class StringUtil {
 
 	public static boolean isPangramEN(String s)
 	{
-		return isPangram(s.toLowerCase(), "abcdefghijklmnopqrstuwxvyz");
+		return isPangram(s.toLowerCase(), LETTERS_EN);
 	}
 
 	public static boolean isPangramTR(String s)
 	{
-		return isPangram(s.toLowerCase(), "abcçdefgğhıijklmnoöprsştuüvyz");
+		return isPangram(s.toLowerCase(), LETTERS_TR);
 	}
 
 	public static String join(String [] str, String delimiter, boolean skipBlanks)
