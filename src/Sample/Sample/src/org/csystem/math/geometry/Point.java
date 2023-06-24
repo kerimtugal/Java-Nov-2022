@@ -1,9 +1,9 @@
 /*----------------------------------------------------------
 	FILE			: Point.java
 	AUTHOR			: Java-Nov-2022 Group
-	LAST UPDATE		: 20.05.2023
+	LAST UPDATE		: 27.05.2023
 	
-	Point class that represents a point in cartesian plane
+	Immutable Point class that represents a point in cartesian plane
 	
 	Copyleft (c) 1993 C and System Programmers Association 
 	All Rights Free
@@ -13,7 +13,7 @@ package org.csystem.math.geometry;
 import static java.lang.Math.*;
 
 public class Point {
-	private double m_x, m_y;
+	private final double m_x, m_y;
 
 	private Point(double a, double b, boolean polar)
 	{
@@ -27,22 +27,22 @@ public class Point {
 		}
 	}
 
-	public static Point createCartesian()
+	public static Point ofCartesian()
 	{
-		return createCartesian(0);
+		return ofCartesian(0);
 	}
 
-	public static Point createCartesian(double x)
+	public static Point ofCartesian(double x)
 	{
-		return createCartesian(x, 0);
+		return ofCartesian(x, 0);
 	}
 
-	public static Point createCartesian(double x, double y)
+	public static Point ofCartesian(double x, double y)
 	{
 		return new Point(x, y, false);
 	}
 
-	public static Point createPolar(double radius, double theta)
+	public static Point ofPolar(double radius, double theta)
 	{
 		return new Point(radius, theta, true);
 	}
@@ -52,19 +52,9 @@ public class Point {
 		return m_x;
 	}
 
-	public void setX(double x)
-	{
-		m_x = x;
-	}
-
 	public double getY()
 	{
 		return m_y;
-	}
-
-	public void setY(double y)
-	{
-		m_y = y;
 	}
 
 	public double distance()
@@ -74,27 +64,16 @@ public class Point {
 	
 	public double distance(double x, double y)
 	{
-		return sqrt(pow(m_x - x, 2) + pow(m_y - y, 2));
+		return PointCommon.distance(m_x, m_y, x, y);
 	}
 	
 	public double distance(Point other)
 	{
 		return distance(other.m_x, other.m_y);
 	}
-	
-	public void offset(double dxy)
-	{
-		offset(dxy, dxy);
-	}
-	
-	public void offset(double dx, double dy)
-	{
-		m_x += dx;
-		m_y += dy;
-	}
-	
+
 	public String toString()
 	{
-		return String.format("(%.2f, %.2f)", m_x, m_y);
+		return PointCommon.toString(m_x, m_y);
 	}
 }

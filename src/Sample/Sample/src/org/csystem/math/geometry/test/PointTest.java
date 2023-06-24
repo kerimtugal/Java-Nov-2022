@@ -19,7 +19,7 @@ public class PointTest {
         double bound = Double.parseDouble(kb.nextLine());
 
 
-        for (; ; ) {
+        while (true) {
             System.out.print("Kaç tane nokta üretmek istersiniz?");
             int count = Integer.parseInt(kb.nextLine());
             if (count <= 0)
@@ -29,7 +29,7 @@ public class PointTest {
             while (count-- > 0) {
                 double x = r.nextDouble(min, bound);
                 double y = r.nextDouble(min, bound);
-                Point p = Point.createCartesian(x, y);
+                Point p = Point.ofCartesian(x, y);
 
                 System.out.printf("x = %f, y = %f%n", x, y);
                 System.out.printf("(%f, %f)%n", p.getX(), p.getY());
