@@ -1,28 +1,23 @@
-/*----------------------------------------------------------------------------------------------------------------------
-	ArrayList sınıfının toString metodu ile ArrayList'in elemanları [] içeerisinde virgülle ayrılacak şekilde bir String
-	elde edilebilir. Bu String'in elde edilme detayları ileride ele alınacaktır
+/*-----------------------------------------------------------------------------------------------------------------------
+
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import org.csystem.util.console.Console;
 
 class App {
-	public static void main(String [] args)
+	public static void main(String[] args)
 	{
-		Scanner kb = new Scanner(System.in);
-		ArrayList names = new ArrayList();
-
 		while (true) {
-			System.out.print("İsim giriniz:");
-			String name = kb.nextLine();
+			char c = Console.readChar("Input a character:", "invalid character!...");
 
-			if ("elma".equals(name))
+			if (c == 'q')
 				break;
 
-			names.add(name);
-		}
+			if (c != 'y' && c!= 'n')
+				continue;
 
-		System.out.println(names.isEmpty() ? "Hiç isim girmediniz!..." : names.toString());
+			Console.writeLine(c);
+		}
 	}
 }

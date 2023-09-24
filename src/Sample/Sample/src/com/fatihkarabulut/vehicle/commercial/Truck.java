@@ -32,4 +32,8 @@ public class Truck extends CommercialVehicle {
     {
         m_maxCapacity = maxCapacity;
     }
+    public double calculateTax()
+    {
+        return m_maxCapacity * 1000;
+    }
 }

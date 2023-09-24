@@ -7,17 +7,11 @@
 
         - Sınıfın public bölümünü değiştirmeden istediğiniz eklemeyi yapabilirsiniz
 
-        - Sınıf geçersiz tarih durumunu kontrol edecektir. Geçersizlik durumunda bir mesaj vererek program sonlandırılacaktır
+        - Sınıf geçersiz tarih durumunu kontrol edecektir. Geçersizlik durumunda fırlatacağı DateTimeException sınıfını da
+        yazınız
 
         - Sınıf, DayOfWeek ve Month enum class'larını kullanmaktadır. enum class'ların sabitlerini değiştirmeden istediğiniz
         eklemeyi yapabilirsiniz
-
-        - Sınıfın içerisinde bildirilen metotlarda
-
-            throw new UnsupportedOperationException("TODO");
-
-        biçimindeki deyim geri dönüş değeri olan metotlar error vermesin diye yazışmıştır. Bu konu ileride ele alınacaktır.
-        İlgili metodu yazarken bu deyimi kaldırınız
 
         - Daha önce yazılmış olan DateUtil sınıfı içerisinde metotlardan yararlanabilirsiniz. Ancak sınıf DateUtil
         sınıfını kullanmayacaktır
@@ -29,7 +23,7 @@
 /*------------------------------------------------------------------
 	FILE		: Date.java
 	AUTHOR		: Java-Nov-2022 Group
-	LAST UPDATE	: 05.06.2023
+	LAST UPDATE	: 22.07.2023
 
 	Date class that represents a date
 
@@ -117,6 +111,11 @@ public class Date {
     public boolean isWeekend()
     {
         throw new UnsupportedOperationException("TODO:");
+    }
+
+    public boolean equals(Object other)
+    {
+        throw new UnsupportedOperationException("TODO");
     }
 
     public String toString()

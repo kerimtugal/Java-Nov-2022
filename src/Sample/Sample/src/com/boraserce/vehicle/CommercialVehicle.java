@@ -2,10 +2,10 @@ package com.boraserce.vehicle;
 
 import com.alicankececi.rental.vehicle.Vehicle;
 
-public class CommercialVehicle extends Vehicle {
+public abstract class CommercialVehicle extends Vehicle {
     protected boolean forPassenger;
 
-    //
+    //...
 
     public CommercialVehicle(boolean passenger)
     {
